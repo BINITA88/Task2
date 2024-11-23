@@ -1,0 +1,48 @@
+
+// Encapsulation is the concept of bundling data (variables) and methods (functions) that operate on the data into a single unit, or class, and restricting access to some of the object's components. It typically involves using getter and setter methods to control access to the data.
+
+// In this example, we have a Person class with encapsulated properties (name and age). We use getter and setter methods to safely access and modify these properties.
+
+
+class Person {
+  String _name; // Private variable
+  int _age; // Private variable
+
+  // Constructor
+  Person(this._name, this._age);
+
+  // Getter for name
+  String get name => _name;
+
+  // Setter for name
+  set name(String name) {
+    if (name.isNotEmpty) {
+      _name = name;
+    }
+  }
+
+  // Getter for age
+  int get age => _age;
+
+  // Setter for age
+  set age(int age) {
+    if (age > 0) {
+      _age = age;
+    }
+  }
+
+  // Method to display information
+  void displayInfo() {
+    print('Name: $_name, Age: $_age');
+  }
+}
+
+void main() {
+  var person = Person('Alice', 30);
+  person.displayInfo(); // Output: Name: Alice, Age: 30
+
+  // Using the setter to modify properties
+  person.name = 'Bob';
+  person.age = 25;
+  person.displayInfo(); // Output: Name: Bob, Age: 25
+}
